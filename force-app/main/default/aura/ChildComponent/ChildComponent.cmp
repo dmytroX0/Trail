@@ -1,0 +1,42 @@
+<aura:component controller="RetrieveAccout" access="global"  
+                implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="Cnts" type="contact[]"/>  
+    
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead><tr class="slds-text-title_caps">
+            <th></th></tr>
+            <tr class="slds-text-title_caps">
+                <th scope="col" class="">
+                    <div class="slds-truncate" title="Name">Contact First Name</div>
+                </th>
+                <th scope="col" class="">
+                    <div class="slds-truncate" title="Id">Contact LastName</div>
+                </th>
+                <th scope="col" class="">
+                    <div class="slds-truncate" title="Phone">Phone</div>
+                </th>
+                <th scope="col" class="">
+                    <div class="slds-truncate" title="Email">Email</div>
+                </th>  
+            </tr>
+        </thead>  
+        <tbody>
+            <aura:iteration items="{!v.Cnts}" var="cnt">
+                <tr>   
+                    <td scope="row" data-label=" FirstName" class="">
+                        <div class="slds-truncate" >{!cnt.FirstName}</div>
+                    </td>
+                    <td data-label="LastName">
+                        <div class="slds-truncate" >{!cnt.LastName}</div>
+                    </td>
+                    <td data-label="Phone">
+                        <div class="slds-truncate" >{!cnt.Phone}</div>
+                    </td>
+                    <td data-label="Email">
+                        <div class="slds-truncate" >{!cnt.Email}</div>
+                    </td>  
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>   
+</aura:component>

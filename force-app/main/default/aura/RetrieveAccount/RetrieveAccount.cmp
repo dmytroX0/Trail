@@ -1,0 +1,27 @@
+<aura:component controller="RetrieveAccout" access="global"  implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="Accc" type="account[]"/> 
+    <aura:attribute name="Conts" type="contact[]"/> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col" class=""><div class="slds-truncate" title="Name">Account ID</div></th>
+                <th scope="col" class=""><div class="slds-truncate" title="Id">Account Name</div></th>
+                <th scope="col" class=""><div class="slds-truncate" title="Phone">Phone Number</div></th>
+                <th scope="col" class=""><div class="slds-truncate" title="Email">Account Type</div></th>  
+            </tr>
+        </thead>  
+        <tbody>
+            <aura:iteration items="{!v.Accc}" var="Act">
+                <tr>
+                    <td scope="row" data-label=" Name" class="">
+                        <div class="slds-truncate" ><ui:outputText value="{!Act.Id}" click="{!c.ShowContacts}"/></div></td>              
+                    <td data-label="ID">   <div class="slds-truncate" >{!Act.Name}</div></td>
+                    <td data-label="Phone"><div class="slds-truncate" >{!Act.Phone}</div></td>
+                    <td data-label="Type"> <div class="slds-truncate" >{!Act.Type}</div></td> 
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table> 
+    <c:ChildComponent Cnts="{!v.Conts}"/><br/>      
+</aura:component>
